@@ -22,7 +22,7 @@ http://localhost:8020/oauth/token?grant_type=client_credentials&scope=select&cli
 ### 2.用户名密码模式 (Resource Owner Password Credential)使用说明
   关键值grant_type=password
 ```http request
-http://localhost:8020/oauth/token?username=user_1&password=123456&grant_type=password&scope=select&client_id=center&client_secret=123456
+http://localhost:8020/oauth/token?username=zhangsan&password=123456&grant_type=password&scope=select&client_id=center&client_secret=123456
 ```
 ### 返回数据(json)
 
