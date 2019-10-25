@@ -3,11 +3,7 @@
 ### 1.客户端调用（Client Credential）使用说明
   关键值grant_type=client_credentials
 ```http request
-http://localhost:8020/oauth/token?grant_type=client_credentials&scope=select&client_id=gate_way&client_secret=123456
-```
-通过网关获取
-```http request
-http://127.0.0.1:8002/manage-authorization/oauth/token?grant_type=client_credentials&scope=select&client_id=gate_way&client_secret=123456
+http://localhost:8020/oauth/token?grant_type=client_credentials&scope=select&client_id=first&client_secret=123456
 ```
 ### 返回数据(json)
 
