@@ -1,0 +1,76 @@
+server:
+  port: 8021
+  shutdown: graceful
+
+spring:
+  application:
+    name: authorization-server
+  jackson:
+    #参数意义：
+    #JsonInclude.Include.ALWAYS       默认
+    #JsonInclude.Include.NON_DEFAULT   属性为默认值不序列化
+    #JsonInclude.Include.NON_EMPTY     属性为 空（””） 或者为 NULL 都不序列化
+    #JsonInclude.Include.NON_NULL      属性为NULL  不序列化
+    #default-property-inclusion: ALWAYS
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/oauth2?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai&verifyServerCertificate=false&useSSL=false
+    #driver-class-name: org.h2.Driver
+    #url: jdbc:h2:./database/zpr
+    username: root
+    password: 123456
+    type: com.zaxxer.hikari.HikariDataSource
+
+    hikari:
+      ## 此属性控制从池返回的连接的默认自动提交行为,默认值：true
+      auto-commit: true
+      ## 数据库连接超时时间,默认30秒，即30000
+      connection-timeout: 30000
+      ## 空闲连接存活最大时间，默认600000（10分钟）
+      idle-timeout: 600000
+      ## 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
+      max-lifetime: 1800000
+      ## 连接池最大连接数，默认是10
+      maximum-pool-size: 10
+      ## 最小空闲连接数量
+      minimum-idle: 10
+      ## 连接池名字
+      pool-name: oauth-hikari
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL57Dialect
+    #database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    #  http-client:
+    #    pool:
+    #      #连接池的最大连接数，0代表不限；如果取0，需要考虑连接泄露导致系统崩溃的后果
+    #      maxTotalConnect: 1000
+    #      #每个路由的最大连接数,如果只调用一个地址,可以将其设置为最大连接数
+    #      maxConnectPerRoute: 200
+    #      # 指客户端和服务器建立连接的超时时间,ms , 最大约21秒,因为内部tcp在进行三次握手建立连接时,默认tcp超时时间是20秒
+    #      connectTimeout: 3000
+    #      # 指客户端从服务器读取数据包的间隔超时时间,不是总读取时间,也就是socket timeout,ms
+    #      readTimeout: 5000
+    #      # 从连接池获取连接的timeout,不宜过大,ms
+    #      connectionRequestTimout: 200
+    #      # 重试次数
+    #      retryTimes: 3
+    #      charset: UTF-8
+    #      # 长连接保持时间 单位s,不宜过长
+    #      keepAliveTime: 10
+    #      # 针对不同的网址,长连接保持的存活时间,单位s,如果是频繁而持续的请求,可以设置小一点,不建议设置过大,避免大量无用连接占用内存资源
+    #      keepAliveTargetHost:
+    #        www.baidu.com: 5
+
+#配置日志
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: ERROR
+        security: debug

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+    <title>登录</title>
+    <link href="css/jquery.slider.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet"/>
+</head>
+
+<body>
+<div class="container-box">
+    <div class="header">
+        <div class="header-title">
+            <div class="title">政通信息技术有限公司</div>
+            <div class="head-box box1"></div>
+            <div class="head-box box2"></div>
+        </div>
+    </div>
+    <div class="body">
+        <div class="body-box">
+            <div class="box-sm">
+                <div class="scanDisk">
+                    <div class="square-block block-right"></div>
+                    <div class="square-block block-left-top"></div>
+                    <div class="square-block block-left-bottom"></div>
+
+                    <div class="circle-sm circle-sm1"></div>
+                    <div class="circle-sm circle-sm2"></div>
+                    <div class="circle-sm circle-sm3"></div>
+                    <div class="circle-sm circle-sm4"></div>
+                    <div class="circle-sm circle-sm5"></div>
+                    <div class="circle-sm circle-sm6"></div>
+
+                    <div class="circle-bg circle-bg1"></div>
+                    <div class="circle-bg circle-bg2"></div>
+                    <div class="circle-bg circle-bg3"></div>
+
+                    <div class="scan-line" id="scan-line"></div>
+                    <div class="center-pointer"></div>
+
+                    <div class="net-work-box"></div>
+                    <div class="message-box"></div>
+                    <div class="center-bottom-box"></div>
+                    <div class="work-box"></div>
+
+                    <div class="net-work-body"></div>
+                    <div class="message-body"></div>
+                    <div class="center-bottom-body"></div>
+                    <div class="work-body"></div>
+                </div>
+            </div>
+            <div class="login-box">
+                <form action="/formLogin" method="post">
+                    <div class="login-body">
+                        <h3 class="login-title">账号登录</h3>
+                        <div class="admin"><input name="username" placeholder="用户名" type="text"/></div>
+                        <div class="pwd"><input name="password" placeholder="密码" type="password"/></div>
+                        <div class="slider" id="slider"></div>
+                        <div class="button" style="text-align: center">
+                            <button class="button submit" type="submit">登录</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="particle-box" id="particle-box"></div>
+    </div>
+    <div class="bottom">copyright © 2020 政通信息技术有限公司 all rights reserved</div>
+</div>
+</body>
+
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/jquery.slider.min.js"></script>
+<script src="js/three.min.js"></script>
+<script src="js/login.js"></script>
+<script type="text/javascript">
+    $("#slider").slider({
+        height: 44, // height
+        sliderBg: "#E8E8E8", // 滑块背景颜色
+        color: "#666", // 文字颜色
+        fontSize: 14, // 文字大小
+        bgColor: "#33CC00", // 背景颜色
+        successMsg: "通过验证", // 验证成功提示文字
+        time: 400, // 返回时间
+        callback: function (result) { // 回调函数，true(成功),false(失败)
+
+        }
+    });
+</script>
+
+</html>
